@@ -18,7 +18,9 @@ app.use(cors({
 
 
 connectDB();
-
+app.get('/', (req, res) => {
+  res.send("server running");
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT ${PORT}`);
