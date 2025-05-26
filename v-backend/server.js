@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import connectDB from './Database/mongoDatabase.js';
+import userRoutes from './Routes/userRoute.js';
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
+app.use('/api/users',userRoutes)
 
 connectDB();
 app.get('/', (req, res) => {
